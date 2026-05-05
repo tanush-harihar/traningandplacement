@@ -1,1 +1,1 @@
-# traningandplacement
+# traning and placement
