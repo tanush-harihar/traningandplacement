@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TPC Dashboard — PlaceIQ</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Add Student Modal -->
+<div id="student-modal" class="modal">
+  <div class="modal-content card">
+    <h3>Add New Student</h3>
+
+    <div class="form-group">
+      <label class="form-label">Name</label>
+      <input type="text" id="student-name" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Email</label>
+      <input type="email" id="student-email" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Branch</label>
+      <input type="text" id="student-branch" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">CGPA</label>
+      <input type="number" step="0.1" id="student-cgpa" class="form-control" />
+    </div>
+
+    <div style="display:flex; gap:10px; justify-content:flex-end; margin-top:15px;">
+      <button class="btn btn-ghost" id="close-modal">Cancel</button>
+      <button class="btn btn-primary" id="save-student">Save</button>
+    </div>
+  </div>
+</div>
+  <div id="toast-container"></div>
+  <div class="dash-layout">
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- ── Sidebar ── -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="sidebar-brand-icon">P</div>
+        <span class="sidebar-brand-name">PlaceIQ</span>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-section-label">Administration</div>
+        <a href="tpc-dashboard.html" class="sidebar-link active">
+          <span class="nav-icon">🏠</span> Dashboard
+        </a>
+        <a href="#" class="sidebar-link">
+          <span class="nav-icon">✅</span> Job Approvals
+          <span class="nav-badge">3</span>
+        </a>
+        <a href="#" class="sidebar-link">
+          <span class="nav-icon">👩‍🎓</span> Students
+        </a>
+        <a href="#" class="sidebar-link">
+          <span class="nav-icon">🏢</span> Recruiters
+        </a>
+        <a href="#" class="sidebar-link">
+          <span class="nav-icon">💼</span> All Jobs
+        </a>
+
+        <div class="nav-section-label">Insights</div>
+        <a href="#" class="sidebar-link">
+          <span class="nav-icon">📊</span> Analytics
+        </a>
+        <a href="#" class="sidebar-link">
+          <span class="nav-icon">📝</span> Reports
+        </a>
+        <a href="#" class="sidebar-link">
+          <span class="nav-icon">⚙️</span> Settings
+        </a>
+      </nav>
+      <div class="sidebar-user">
+        <div class="user-avatar">TP</div>
+        <div class="user-info">
+          <div class="user-name">TPC Admin</div>
+          <div class="user-role">VJTI Mumbai · TPC Cell</div>
+        </div>
+        <a href="login.html" class="user-logout" title="Logout">⎋</a>
+      </div>
+    </aside>
+
+    <!-- ── Main Content ── -->
+    <main class="dash-main">
+      <header class="topbar">
+        <div class="topbar-left-wrap" style="display:flex;align-items:center;gap:8px;"><button class="menu-toggle" id="menu-toggle" aria-label="Open menu">☰</button><div class="topbar-left">
+          <h4>TPC Admin Dashboard</h4>
+          <span>Placement Season 2024–25 · Manage approvals, students &amp; analytics</span>
+        </div></div><div class="topbar-right">
+          <div class="topbar-search">
+            <span>🔍</span>
+            <input type="text" id="tpc-search" placeholder="Search students…" />
+          </div>
+          <button class="topbar-icon-btn">🔔</button>
+          <button class="topbar-icon-btn">❓</button>
+        </div>
+      </header>
+
+      <div class="dash-body">
+
+        <!-- Analytics Cards -->
+        <div class="analytics-grid">
+          <div class="stat-mini">
+            <div class="stat-mini-icon blue">👩‍🎓</div>
+            <div class="stat-mini-text">
+              <div class="value">1,248</div>
+              <div class="label">Registered Students</div>
+            </div>
+          </div>
+          <div class="stat-mini">
+            <div class="stat-mini-icon green">💼</div>
+            <div class="stat-mini-text">
+              <div class="value">86</div>
+              <div class="label">Active Job Listings</div>
+            </div>
+          </div>
+          <div class="stat-mini">
+            <div class="stat-mini-icon yellow">📨</div>
+            <div class="stat-mini-text">
+              <div class="value">342</div>
+              <div class="label">Total Applications</div>
+            </div>
+          </div>
+          <div class="stat-mini">
+            <div class="stat-mini-icon red">🎉</div>
+            <div class="stat-mini-text">
+              <div class="value">194</div>
+              <div class="label">Students Placed</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chart Placeholders -->
+        <div class="tpc-charts-row">
+          <div class="chart-card">
+            <h5>Placements by Branch</h5>
+            <div class="chart-placeholder">
+              <div class="chart-icon">📊</div>
+              <span>Bar chart will render here</span>
+              <span style="font-size:0.75rem; color:var(--text-light)">Integrate with Chart.js / Firebase</span>
+            </div>
+          </div>
+          <div class="chart-card">
+            <h5>Applications Over Time</h5>
+            <div class="chart-placeholder">
+              <div class="chart-icon">📈</div>
+              <span>Line chart will render here</span>
+              <span style="font-size:0.75rem; color:var(--text-light)">Integrate with Chart.js / Firebase</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pending Approvals -->
+        <div class="section-header">
+          <h3>Pending Job Approvals <span class="badge badge-yellow" style="margin-left:10px;">3 Pending</span></h3>
+          <button class="btn btn-ghost btn-sm">View All</button>
+        </div>
+
+        <div class="approvals-list" style="margin-bottom:32px;">
+          <div class="approval-card">
+            <div class="company-logo">TC</div>
+            <div class="approval-info">
+              <h5>Senior Data Engineer</h5>
+              <div class="approval-meta">TechCorp India · Pune · ₹14–18 LPA · Deadline: Jan 10</div>
+              <div class="approval-tags">
+                <span class="skill-tag">Spark</span>
+                <span class="skill-tag">Kafka</span>
+                <span class="skill-tag">Python</span>
+                <span class="badge badge-gray">Full Time</span>
+                <span class="badge badge-gray">B.Tech CSE/IT</span>
+              </div>
+            </div>
+            <div class="approval-actions">
+              <button class="btn btn-success btn-sm btn-approve">✓ Approve</button>
+              <button class="btn btn-danger btn-sm btn-reject">✕ Reject</button>
+            </div>
+          </div>
+
+          <div class="approval-card">
+            <div class="company-logo" style="background:#FEF3C7; color:#92400E;">FI</div>
+            <div class="approval-info">
+              <h5>Finance Analyst Intern</h5>
+              <div class="approval-meta">FinEdge Solutions · Mumbai · ₹25K/mo · Deadline: Jan 5</div>
+              <div class="approval-tags">
+                <span class="skill-tag">Excel</span>
+                <span class="skill-tag">Tally</span>
+                <span class="skill-tag">Financial Modelling</span>
+                <span class="badge badge-gray">Internship</span>
+                <span class="badge badge-gray">BBA/B.Com</span>
+              </div>
+            </div>
+            <div class="approval-actions">
+              <button class="btn btn-success btn-sm btn-approve">✓ Approve</button>
+              <button class="btn btn-danger btn-sm btn-reject">✕ Reject</button>
+            </div>
+          </div>
+
+          <div class="approval-card">
+            <div class="company-logo" style="background:#D1FAE5; color:#065F46;">NX</div>
+            <div class="approval-info">
+              <h5>React Developer</h5>
+              <div class="approval-meta">Nexus Labs · Remote · ₹8–12 LPA · Deadline: Jan 20</div>
+              <div class="approval-tags">
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">TypeScript</span>
+                <span class="skill-tag">REST APIs</span>
+                <span class="badge badge-gray">Full Time</span>
+                <span class="badge badge-gray">Any Branch</span>
+              </div>
+            </div>
+            <div class="approval-actions">
+              <button class="btn btn-success btn-sm btn-approve">✓ Approve</button>
+              <button class="btn btn-danger btn-sm btn-reject">✕ Reject</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Students Table -->
+        <div class="students-table-wrap">
+          <div class="table-header">
+            <h4>Registered Students</h4>
+            <div style="display:flex; gap:8px;">
+              <button class="btn btn-primary btn-sm">+ Add Student</button>
+            </div>
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Student</th>
+                <th>Branch</th>
+                <th>CGPA</th>
+                <th>Applications</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="student-name">Aarav Kumar</div>
+                  <div class="student-email">aarav.kumar@vjti.ac.in</div>
+                </td>
+                <td>B.Tech CSE</td>
+                <td><strong>7.9</strong></td>
+                <td>3</td>
+                <td><span class="badge badge-yellow">In Process</span></td>
+                <td><button class="btn btn-ghost btn-sm">View</button></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="student-name">Priya Sharma</div>
+                  <div class="student-email">priya.sharma@vjti.ac.in</div>
+                </td>
+                <td>B.Tech IT</td>
+                <td><strong>8.4</strong></td>
+                <td>5</td>
+                <td><span class="badge badge-green">Placed</span></td>
+                <td><button class="btn btn-ghost btn-sm">View</button></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="student-name">Rohan Mehta</div>
+                  <div class="student-email">rohan.mehta@vjti.ac.in</div>
+                </td>
+                <td>B.Tech EXTC</td>
+                <td><strong>7.2</strong></td>
+                <td>1</td>
+                <td><span class="badge badge-gray">Not Applied</span></td>
+                <td><button class="btn btn-ghost btn-sm">View</button></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="student-name">Sneha Rao</div>
+                  <div class="student-email">sneha.rao@vjti.ac.in</div>
+                </td>
+                <td>B.Tech Mech</td>
+                <td><strong>8.1</strong></td>
+                <td>4</td>
+                <td><span class="badge badge-yellow">Shortlisted</span></td>
+                <td><button class="btn btn-ghost btn-sm">View</button></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="student-name">Karan Joshi</div>
+                  <div class="student-email">karan.joshi@vjti.ac.in</div>
+                </td>
+                <td>B.Tech CSE</td>
+                <td><strong>9.1</strong></td>
+                <td>6</td>
+                <td><span class="badge badge-green">Placed</span></td>
+                <td><button class="btn btn-ghost btn-sm">View</button></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="student-name">Ananya Singh</div>
+                  <div class="student-email">ananya.singh@vjti.ac.in</div>
+                </td>
+                <td>B.Tech IT</td>
+                <td><strong>7.6</strong></td>
+                <td>2</td>
+                <td><span class="badge badge-yellow">In Process</span></td>
+                <td><button class="btn btn-ghost btn-sm">View</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="firebase/firebase-init.js"></script>
+  <script src="script.js"></script>
+  <script type="module" src="firebase/tpc.js"></script>
+</body>
+</html>

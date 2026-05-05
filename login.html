@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In — PlaceIQ</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div id="toast-container"></div>
+
+  <div class="login-page">
+    <!-- ── Left Panel ── -->
+    <div class="login-left">
+      <div class="login-brand">
+        <div class="login-brand-icon">P</div>
+        <span class="login-brand-name">PlaceIQ</span>
+      </div>
+
+      <div class="login-hero-text">
+        <h2>Your next career move starts here.</h2>
+        <p>Access hundreds of placement opportunities, track applications, and connect with top recruiters — all in one place.</p>
+      </div>
+
+      <div class="login-testimonial">
+        <p>"PlaceIQ made my placement journey seamless. I got placed at Infosys within 3 weeks!"</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">RK</div>
+          <div class="testimonial-info">
+            <span>Rohan Kumar</span>
+            <small>B.Tech CSE, 2024 Batch</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Right Panel ── -->
+    <div class="login-right">
+      <div class="login-form-wrap">
+        <h3>Welcome back</h3>
+        <p class="login-sub">Sign in to your PlaceIQ account</p>
+
+        <!-- Role Selector -->
+        <div class="role-selector">
+          <input type="radio" name="role" id="role-student" value="student" class="role-option" checked />
+          <label for="role-student" class="role-label">
+            <span class="role-icon">🎓</span> Student
+          </label>
+
+          <input type="radio" name="role" id="role-recruiter" value="recruiter" class="role-option" />
+          <label for="role-recruiter" class="role-label">
+            <span class="role-icon">🏢</span> Recruiter
+          </label>
+
+          <input type="radio" name="role" id="role-tpc" value="tpc" class="role-option" />
+          <label for="role-tpc" class="role-label">
+            <span class="role-icon">🛡️</span> TPC Admin
+          </label>
+        </div>
+
+        <form id="login-form">
+          <div class="form-group">
+            <label class="form-label" for="email">Email address</label>
+            <input type="email" id="email" class="form-control" placeholder="you@university.edu" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="password">Password</label>
+            <input type="password" id="password" class="form-control" placeholder="Enter your password" />
+          </div>
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:24px;">
+            <label style="display:flex; align-items:center; gap:8px; font-size:0.85rem; color:var(--text-muted); cursor:pointer;">
+              <input type="checkbox" /> Remember me
+            </label>
+            <a href="#" style="font-size:0.85rem; color:var(--primary-mid); font-weight:500;">Forgot password?</a>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg" style="width:100%;">Sign In →</button>
+        </form>
+
+        <div class="login-footer-links">
+          Don't have an account? <a href="#">Request access</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="firebase/firebase-init.js"></script>
+  <script src="script.js"></script>
+  <script type="module" src="firebase/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Dashboard — PlaceIQ</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="toast-container"></div>
+  <div class="dash-layout">
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- ── Sidebar ── -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="sidebar-brand-icon">P</div>
+        <span class="sidebar-brand-name">PlaceIQ</span>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-section-label">Main</div>
+        <a href="student-dashboard.html" class="sidebar-link active">
+          <span class="nav-icon">🏠</span> Dashboard
+        </a>
+        <a href="#" class="sidebar-link">
+          <span class="nav-icon">💼</span> Browse Jobs
+        </a>
+        <a href="#" class="sidebar-link">
+          <span class="nav-icon">📋</span> My Applications
+          <span class="nav-badge">3</span>
+        </a>
+        <a href="#" class="sidebar-link">
+          <span class="nav-icon">📅</span> Interviews
+        </a>
+
+        <div class="nav-section-label">Profile</div>
+        <a href="#" class="sidebar-link">
+          <span class="nav-icon">👤</span> My Profile
+        </a>
+        <a href="#" class="sidebar-link">
+          <span class="nav-icon">📄</span> Resume
+        </a>
+        <a href="#" class="sidebar-link">
+          <span class="nav-icon">🔔</span> Notifications
+        </a>
+        <a href="#" class="sidebar-link">
+          <span class="nav-icon">⚙️</span> Settings
+        </a>
+      </nav>
+      <div class="sidebar-user">
+        <div class="user-avatar" data-user-initials>AK</div>
+        <div class="user-info">
+          <div class="user-name" data-user-name>Aarav Kumar</div>
+          <div class="user-role" data-user-role>B.Tech CSE · 7.9 CGPA</div>
+        </div>
+        <a href="login.html" class="user-logout" title="Logout">⎋</a>
+      </div>
+    </aside>
+
+    <!-- ── Main Content ── -->
+    <main class="dash-main">
+      <!-- Topbar -->
+      <header class="topbar">
+        <div class="topbar-left-wrap"><button class="menu-toggle" id="menu-toggle" aria-label="Open menu">☰</button><div class="topbar-left">
+          <h4>Hi, Aarav 👋</h4>
+          <span>Here are today's top opportunities for you</span>
+        </div></div><div class="topbar-right">
+          <div class="topbar-search">
+            <span>🔍</span>
+            <input type="text" id="job-search" placeholder="Search jobs, companies…" />
+          </div>
+          <button class="topbar-icon-btn" title="Notifications">🔔</button>
+          <button class="topbar-icon-btn" title="Help">❓</button>
+        </div>
+      </header>
+
+      <div class="dash-body">
+        <!-- Stats Row -->
+        <div class="stat-cards-row">
+          <div class="stat-mini">
+            <div class="stat-mini-icon blue">💼</div>
+            <div class="stat-mini-text">
+              <div class="value">24</div>
+              <div class="label">Jobs Available</div>
+            </div>
+          </div>
+          <div class="stat-mini">
+            <div class="stat-mini-icon green">✅</div>
+            <div class="stat-mini-text">
+              <div class="value">3</div>
+              <div class="label">Applications Sent</div>
+            </div>
+          </div>
+          <div class="stat-mini">
+            <div class="stat-mini-icon yellow">📅</div>
+            <div class="stat-mini-text">
+              <div class="value">1</div>
+              <div class="label">Interview Scheduled</div>
+            </div>
+          </div>
+          <div class="stat-mini">
+            <div class="stat-mini-icon red">⏰</div>
+            <div class="stat-mini-text">
+              <div class="value">4</div>
+              <div class="label">Deadlines This Week</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Content Grid -->
+        <div class="content-grid">
+          <div>
+            <!-- Job Listings -->
+            <div class="section-header">
+              <h3>Recommended Jobs</h3>
+              <div style="display:flex; gap:8px;">
+                <button class="btn btn-ghost btn-sm" id="sort-btn">Sort ↕</button>
+              </div>
+            </div>
+
+            <div class="jobs-grid">
+              <!-- Job Card 1 -->
+              <div class="job-card">
+                <div class="job-card-header">
+                  <div class="company-logo">G</div>
+                  <div class="job-title-wrap">
+                    <div class="job-title">Software Engineer</div>
+                    <div class="job-company">Google India</div>
+                  </div>
+                  <span class="badge badge-green">Open</span>
+                </div>
+                <div class="job-meta">
+                  <div class="job-meta-item"><span>📍</span> Bangalore</div>
+                  <div class="job-meta-item"><span>💰</span> ₹18–22 LPA</div>
+                  <div class="job-meta-item"><span>📅</span> Dec 15</div>
+                </div>
+                <div class="job-skills">
+                  <span class="skill-tag">Python</span>
+                  <span class="skill-tag">DSA</span>
+                  <span class="skill-tag">System Design</span>
+                  <span class="skill-tag">SQL</span>
+                </div>
+                <div class="job-footer">
+                  <div class="match-score">
+                    <div class="score-ring" style="--pct:87">
+                      <div class="score-inner">87</div>
+                    </div>
+                    87% Match
+                  </div>
+                  <button class="btn btn-primary btn-sm btn-apply">Apply Now</button>
+                </div>
+              </div>
+
+              <!-- Job Card 2 -->
+              <div class="job-card">
+                <div class="job-card-header">
+                  <div class="company-logo" style="background:#FEF3C7; color:#92400E;">MS</div>
+                  <div class="job-title-wrap">
+                    <div class="job-title">Product Analyst</div>
+                    <div class="job-company">Microsoft</div>
+                  </div>
+                  <span class="badge badge-green">Open</span>
+                </div>
+                <div class="job-meta">
+                  <div class="job-meta-item"><span>📍</span> Hyderabad</div>
+                  <div class="job-meta-item"><span>💰</span> ₹14–18 LPA</div>
+                  <div class="job-meta-item"><span>📅</span> Dec 20</div>
+                </div>
+                <div class="job-skills">
+                  <span class="skill-tag">Excel</span>
+                  <span class="skill-tag">SQL</span>
+                  <span class="skill-tag">Power BI</span>
+                </div>
+                <div class="job-footer">
+                  <div class="match-score">
+                    <div class="score-ring" style="--pct:73">
+                      <div class="score-inner">73</div>
+                    </div>
+                    73% Match
+                  </div>
+                  <button class="btn btn-primary btn-sm btn-apply">Apply Now</button>
+                </div>
+              </div>
+
+              <!-- Job Card 3 -->
+              <div class="job-card">
+                <div class="job-card-header">
+                  <div class="company-logo" style="background:#FEE2E2; color:#991B1B;">AM</div>
+                  <div class="job-title-wrap">
+                    <div class="job-title">Data Scientist</div>
+                    <div class="job-company">Amazon</div>
+                  </div>
+                  <span class="badge badge-yellow">Closing Soon</span>
+                </div>
+                <div class="job-meta">
+                  <div class="job-meta-item"><span>📍</span> Pune</div>
+                  <div class="job-meta-item"><span>💰</span> ₹16–20 LPA</div>
+                  <div class="job-meta-item"><span>📅</span> Dec 10</div>
+                </div>
+                <div class="job-skills">
+                  <span class="skill-tag">ML</span>
+                  <span class="skill-tag">Python</span>
+                  <span class="skill-tag">TensorFlow</span>
+                  <span class="skill-tag">Spark</span>
+                </div>
+                <div class="job-footer">
+                  <div class="match-score">
+                    <div class="score-ring" style="--pct:65">
+                      <div class="score-inner">65</div>
+                    </div>
+                    65% Match
+                  </div>
+                  <button class="btn btn-primary btn-sm btn-apply">Apply Now</button>
+                </div>
+              </div>
+
+              <!-- Job Card 4 -->
+              <div class="job-card">
+                <div class="job-card-header">
+                  <div class="company-logo" style="background:#D1FAE5; color:#065F46;">IN</div>
+                  <div class="job-title-wrap">
+                    <div class="job-title">Frontend Developer</div>
+                    <div class="job-company">Infosys BPM</div>
+                  </div>
+                  <span class="badge badge-green">Open</span>
+                </div>
+                <div class="job-meta">
+                  <div class="job-meta-item"><span>📍</span> Chennai</div>
+                  <div class="job-meta-item"><span>💰</span> ₹6–9 LPA</div>
+                  <div class="job-meta-item"><span>📅</span> Jan 5</div>
+                </div>
+                <div class="job-skills">
+                  <span class="skill-tag">React</span>
+                  <span class="skill-tag">JavaScript</span>
+                  <span class="skill-tag">CSS</span>
+                </div>
+                <div class="job-footer">
+                  <div class="match-score">
+                    <div class="score-ring" style="--pct:91">
+                      <div class="score-inner">91</div>
+                    </div>
+                    91% Match
+                  </div>
+                  <button class="btn btn-primary btn-sm btn-apply">Apply Now</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sidebar Panel -->
+          <div>
+            <div class="profile-panel" style="margin-bottom:20px;">
+              <div class="profile-avatar-wrap">
+                <div class="profile-avatar">AK</div>
+                <div class="profile-name">Aarav Kumar</div>
+                <div class="profile-sub">B.Tech CSE · 3rd Year</div>
+                <div class="profile-sub" style="margin-top:2px;">CGPA: 7.9 / 10</div>
+              </div>
+              <div class="profile-stat-row">
+                <div class="profile-stat-item"><div class="n">3</div><div class="l">Applied</div></div>
+                <div class="profile-stat-item"><div class="n">1</div><div class="l">Shortlisted</div></div>
+                <div class="profile-stat-item"><div class="n">0</div><div class="l">Offers</div></div>
+              </div>
+            </div>
+
+            <div class="profile-panel">
+              <h5 style="margin-bottom:14px;">Recent Applications</h5>
+              <div class="app-status-list">
+                <div class="app-status-item">
+                  <div>
+                    <div class="company-name">TCS</div>
+                    <div class="role-name">Graduate Engineer Trainee</div>
+                  </div>
+                  <span class="badge badge-yellow">Under Review</span>
+                </div>
+                <div class="app-status-item">
+                  <div>
+                    <div class="company-name">Wipro</div>
+                    <div class="role-name">Systems Engineer</div>
+                  </div>
+                  <span class="badge badge-green">Shortlisted</span>
+                </div>
+                <div class="app-status-item">
+                  <div>
+                    <div class="company-name">Accenture</div>
+                    <div class="role-name">Associate Dev</div>
+                  </div>
+                  <span class="badge badge-gray">Applied</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="firebase/firebase-init.js"></script>
+  <script src="script.js"></script>
+  <script type="module" src="firebase/student.js"></script>
+</body>
+</html>

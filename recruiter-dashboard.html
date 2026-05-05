@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recruiter Dashboard — PlaceIQ</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="toast-container"></div>
+  <div class="dash-layout">
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- ── Sidebar ── -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="sidebar-brand-icon">P</div>
+        <span class="sidebar-brand-name">PlaceIQ</span>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-section-label">Recruitment</div>
+        <a href="recruiter-dashboard.html" class="sidebar-link active">
+          <span class="nav-icon">🏠</span> Dashboard
+        </a>
+        <a href="#" class="sidebar-link">
+          <span class="nav-icon">➕</span> Post a Job
+        </a>
+        <a href="#" class="sidebar-link">
+          <span class="nav-icon">📋</span> My Job Postings
+        </a>
+        <a href="#" class="sidebar-link">
+          <span class="nav-icon">👥</span> Applicants
+          <span class="nav-badge">12</span>
+        </a>
+        <a href="#" class="sidebar-link">
+          <span class="nav-icon">📅</span> Interviews</a>
+
+        <div class="nav-section-label">Company</div>
+        <a href="#" class="sidebar-link">
+          <span class="nav-icon">🏢</span> Company Profile
+        </a>
+        <a href="#" class="sidebar-link">
+          <span class="nav-icon">📊</span> Analytics
+        </a>
+        <a href="#" class="sidebar-link">
+          <span class="nav-icon">⚙️</span> Settings
+        </a>
+      </nav>
+      <div class="sidebar-user">
+        <div class="user-avatar">SP</div>
+        <div class="user-info">
+          <div class="user-name">Shreya Patel</div>
+          <div class="user-role">HR · TechCorp India</div>
+        </div>
+        <a href="login.html" class="user-logout" title="Logout">⎋</a>
+      </div>
+    </aside>
+
+    <!-- ── Main Content ── -->
+    <main class="dash-main">
+      <header class="topbar">
+        <div class="topbar-left-wrap"><button class="menu-toggle" id="menu-toggle" aria-label="Open menu">☰</button><div class="topbar-left">
+          <h4>Recruiter Dashboard</h4>
+          <span>Manage your job postings and applicants</span>
+        </div></div><div class="topbar-right">
+          <div class="topbar-search">
+            <span>🔍</span>
+            <input type="text" placeholder="Search applicants…" />
+          </div>
+          <button class="topbar-icon-btn">🔔</button>
+          <button class="topbar-icon-btn">❓</button>
+        </div>
+      </header>
+
+      <div class="dash-body">
+        <!-- Stats -->
+        <div class="stat-cards-row">
+          <div class="stat-mini">
+            <div class="stat-mini-icon blue">📋</div>
+            <div class="stat-mini-text">
+              <div class="value">4</div>
+              <div class="label">Active Postings</div>
+            </div>
+          </div>
+          <div class="stat-mini">
+            <div class="stat-mini-icon green">👥</div>
+            <div class="stat-mini-text">
+              <div class="value">47</div>
+              <div class="label">Total Applicants</div>
+            </div>
+          </div>
+          <div class="stat-mini">
+            <div class="stat-mini-icon yellow">🔍</div>
+            <div class="stat-mini-text">
+              <div class="value">12</div>
+              <div class="label">Shortlisted</div>
+            </div>
+          </div>
+          <div class="stat-mini">
+            <div class="stat-mini-icon red">⏳</div>
+            <div class="stat-mini-text">
+              <div class="value">2</div>
+              <div class="label">Pending Approval</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Post Job Form -->
+        <div class="post-job-card">
+          <h4>Post a New Job</h4>
+          <p class="form-hint">Fill in the details below. Your job will be reviewed by the TPC before going live.</p>
+
+          <form id="post-job-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="job-title">Job Title <span style="color:var(--danger)">*</span></label>
+                <input type="text" id="job-title" class="form-control" placeholder="e.g. Software Engineer" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="job-company">Company Name <span style="color:var(--danger)">*</span></label>
+                <input type="text" id="job-company" class="form-control" placeholder="e.g. TechCorp India" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="job-description">Job Description</label>
+              <textarea id="job-description" class="form-control" placeholder="Describe the role, responsibilities, and what you're looking for…"></textarea>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="job-skills">Required Skills</label>
+                <input type="text" id="job-skills" class="form-control" placeholder="e.g. Python, React, SQL (comma separated)" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="job-eligibility">Eligibility Criteria</label>
+                <input type="text" id="job-eligibility" class="form-control" placeholder="e.g. B.Tech CSE/IT, CGPA ≥ 7.0" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="job-location">Location</label>
+                <input type="text" id="job-location" class="form-control" placeholder="e.g. Bangalore / Remote" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="job-salary">Salary / CTC</label>
+                <input type="text" id="job-salary" class="form-control" placeholder="e.g. ₹8–12 LPA" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="job-deadline">Application Deadline</label>
+                <input type="date" id="job-deadline" class="form-control" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="job-type">Job Type</label>
+                <select id="job-type" class="form-control">
+                  <option value="">Select type</option>
+                  <option value="full-time">Full Time</option>
+                  <option value="internship">Internship</option>
+                  <option value="contract">Contract</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="btn btn-ghost" onclick="document.getElementById('post-job-form').reset()">Clear</button>
+              <button type="submit" class="btn btn-primary">Submit for Approval →</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Posted Jobs -->
+        <div class="section-header">
+          <h3>My Posted Jobs</h3>
+          <button class="btn btn-ghost btn-sm">View All</button>
+        </div>
+
+        <div class="posted-jobs-grid" id="posted-jobs-grid">
+          <div class="posted-job-card">
+            <div class="job-status-bar">
+              <span class="badge badge-green">Live</span>
+              <button class="btn btn-ghost btn-sm">⋯</button>
+            </div>
+            <div class="job-title">Backend Engineer</div>
+            <div class="job-company">TechCorp India · Pune</div>
+            <div class="job-skills" style="margin-bottom:0;">
+              <span class="skill-tag">Node.js</span>
+              <span class="skill-tag">MongoDB</span>
+              <span class="skill-tag">AWS</span>
+            </div>
+            <div class="job-stats-row">
+              <div class="job-stat-mini"><strong>18</strong> Applicants</div>
+              <div class="job-stat-mini"><strong>₹10–14 LPA</strong> CTC</div>
+              <div class="job-stat-mini"><strong>Jan 2</strong> Deadline</div>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-ghost btn-sm">✏️ Edit</button>
+              <button class="btn btn-primary btn-sm">👥 View Applicants</button>
+            </div>
+          </div>
+
+          <div class="posted-job-card">
+            <div class="job-status-bar">
+              <span class="badge badge-green">Live</span>
+              <button class="btn btn-ghost btn-sm">⋯</button>
+            </div>
+            <div class="job-title">UI/UX Designer</div>
+            <div class="job-company">TechCorp India · Remote</div>
+            <div class="job-skills" style="margin-bottom:0;">
+              <span class="skill-tag">Figma</span>
+              <span class="skill-tag">Prototyping</span>
+            </div>
+            <div class="job-stats-row">
+              <div class="job-stat-mini"><strong>9</strong> Applicants</div>
+              <div class="job-stat-mini"><strong>₹6–9 LPA</strong> CTC</div>
+              <div class="job-stat-mini"><strong>Jan 10</strong> Deadline</div>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-ghost btn-sm">✏️ Edit</button>
+              <button class="btn btn-primary btn-sm">👥 View Applicants</button>
+            </div>
+          </div>
+
+          <div class="posted-job-card">
+            <div class="job-status-bar">
+              <span class="badge badge-yellow">Pending Approval</span>
+              <button class="btn btn-ghost btn-sm">⋯</button>
+            </div>
+            <div class="job-title">DevOps Engineer</div>
+            <div class="job-company">TechCorp India · Hyderabad</div>
+            <div class="job-skills" style="margin-bottom:0;">
+              <span class="skill-tag">Docker</span>
+              <span class="skill-tag">Kubernetes</span>
+              <span class="skill-tag">CI/CD</span>
+            </div>
+            <div class="job-stats-row">
+              <div class="job-stat-mini"><strong>0</strong> Applicants</div>
+              <div class="job-stat-mini"><strong>₹12–16 LPA</strong> CTC</div>
+              <div class="job-stat-mini"><strong>Jan 15</strong> Deadline</div>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-ghost btn-sm">✏️ Edit</button>
+              <button class="btn btn-ghost btn-sm" style="color:var(--danger); border-color:var(--danger);">🗑️ Delete</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="firebase/firebase-init.js"></script>
+  <script src="script.js"></script>
+  <script type="module" src="firebase/recruiter.js"></script>
+</body>
+</html>
