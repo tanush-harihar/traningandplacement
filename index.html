@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PlaceIQ — College Placement Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Toast Container -->
+  <div id="toast-container"></div>
+
+  <!-- ── Navbar ── -->
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon">P</div>
+        PlaceIQ
+      </a>
+      <div class="nav-links">
+        <a href="student-dashboard.html">For Students</a>
+        <a href="recruiter-dashboard.html">For Recruiters</a>
+        <a href="#">About</a>
+      </div>
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-ghost">Sign In</a>
+        <a href="login.html" class="btn btn-primary">Get Started →</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span></span> Campus Placement Platform
+        </div>
+        <h1>Bridge the Gap Between <em>Talent</em> &amp; Opportunity</h1>
+        <p>PlaceIQ connects students with top recruiters through a smart, transparent placement process — managed end-to-end by your Training &amp; Placement Cell.</p>
+        <div class="hero-cta">
+          <a href="login.html" class="btn btn-primary btn-lg" data-cta="login">Start Your Journey →</a>
+          <a href="login.html" class="btn btn-outline btn-lg">Post a Job</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card-stack">
+          <div class="hero-card-mock card-1">
+            <div class="mock-company-row">
+              <div class="mock-logo">G</div>
+              <div>
+                <div class="mock-title">Software Engineer</div>
+                <div class="mock-sub">Google · Bangalore · ₹18 LPA</div>
+              </div>
+            </div>
+            <div class="mock-tag-row">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">DSA</span>
+              <span class="skill-tag">System Design</span>
+            </div>
+            <div style="margin-top:14px; display:flex; align-items:center; justify-content:space-between;">
+              <span class="badge badge-green">🟢 Match: 87%</span>
+              <button class="btn btn-primary btn-sm">Apply</button>
+            </div>
+          </div>
+          <div class="hero-card-mock card-2">
+            <div class="mock-company-row">
+              <div class="mock-logo">MS</div>
+              <div>
+                <div class="mock-title">Product Manager Intern</div>
+                <div class="mock-sub">Microsoft · Hyderabad</div>
+              </div>
+            </div>
+          </div>
+          <div class="hero-card-mock card-3">
+            <div class="mock-company-row">
+              <div class="mock-logo">AM</div>
+              <div>
+                <div class="mock-title">Data Analyst</div>
+                <div class="mock-sub">Amazon · Pune</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Features ── -->
+  <section class="features-strip">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-icon">🎯</div>
+          <h4>Smart Job Matching</h4>
+          <p>Our matching engine surfaces the most relevant opportunities based on your skills, CGPA, and preferences.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🏢</div>
+          <h4>Top Recruiters</h4>
+          <p>Connect with Fortune 500s and funded startups actively recruiting from your campus this season.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🛡️</div>
+          <h4>TPC Oversight</h4>
+          <p>Your Training &amp; Placement Cell reviews and approves every listing, ensuring quality and authenticity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Stats ── -->
+  <section class="stats-strip">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="card stat-card">
+          <div class="stat-number">2,400+</div>
+          <div class="stat-label">Students Placed</div>
+        </div>
+        <div class="card stat-card">
+          <div class="stat-number">180+</div>
+          <div class="stat-label">Partner Companies</div>
+        </div>
+        <div class="card stat-card">
+          <div class="stat-number">₹24 LPA</div>
+          <div class="stat-label">Highest Package</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">PlaceIQ</div>
+      <p>© 2025 PlaceIQ. Empowering campus placements.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="firebase/firebase-init.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
